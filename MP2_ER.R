@@ -70,9 +70,8 @@ cls <- c("Unclassified", "Open Water", "Perennial Ice/Snow", "Developed, Open Sp
          "Developed High Intensity", "Barren Land", "Deciduous Forest", 
          "Evergreen Forest", "Mixed Forest", "Shrub/Scrub", "Herbaceous", 
          "Hay/Pasture", "Cultivated Crops", "Woody Wetlands", "Emergent Herbaceous Wetlands")
-nlcd.cats <- terra::cats(nlcd_data_terr2, layer=1) %>% # define nlcd categories
-  
-  colnames(nlcd.cats)
+
+nlcd.cats <- terra::cats(nlcd_data_terr2, layer=1) # define nlcd categories
 
 nlcd_modeval <- terra::aggregate(nlcd.fullres.crop, fact=26, fun="modal") # aggregate to 780 m resolution and assign modal value from NLCD classes
 m <- rast(extent= ext(w.states.vect), crs= crs(nlcd.fullres.crop), resolution= 771) # blank raster for template
