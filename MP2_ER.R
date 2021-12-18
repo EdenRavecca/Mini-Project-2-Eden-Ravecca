@@ -113,7 +113,7 @@ lc_values <- terra::extract(nlcd_771_mode, cp_prfa.vect, fun= max, method= "simp
 ppt_lc_val <- left_join(ppt_values, lc_values, by= "ID")
 
 
-tmaptools::palette_explorer()
+# tmaptools::palette_explorer()
 
 tm_shape(cp.summary) + 
   tm_polygons(col = "avg_pop",  border.col = "gray", legend.show=TRUE, n=8, style= "cont",
