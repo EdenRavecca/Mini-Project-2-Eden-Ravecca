@@ -163,3 +163,5 @@ tm_shape(nlcd_771_mode) +
              cardinal.directions = c("N", "E", "S", "W"), lwd = 1,
              position=c("left", "top"))
 ```
+
+_MW: Thanks for making an attempt Eden. I couldn't get this to knit (maybe you couldn't either?) and it doesn't look like you made all of the assigned figures (including the interactive map)._ 
