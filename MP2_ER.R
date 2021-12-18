@@ -72,7 +72,6 @@ cls <- c("Unclassified", "Open Water", "Perennial Ice/Snow", "Developed, Open Sp
          "Hay/Pasture", "Cultivated Crops", "Woody Wetlands", "Emergent Herbaceous Wetlands")
 
 nlcd.cats <- terra::cats(nlcd_data_terr2, layer=1) # define nlcd categories
-
 nlcd_modeval <- terra::aggregate(nlcd.fullres.crop, fact=26, fun="modal") # aggregate to 780 m resolution and assign modal value from NLCD classes
 m <- rast(extent= ext(w.states.vect), crs= crs(nlcd.fullres.crop), resolution= 771) # blank raster for template
 nlcd_771_mode <- terra::resample(nlcd_modeval, m, method= "near", factors=TRUE) # resample to 771 m resolution and assign NLCD value based on "nearest neighbor"
@@ -83,10 +82,6 @@ head(nlcd_771_mode)
 
 ##########################.... Create Population Summary ....##########################
 
-# cp.summary <- w.cntypop %>% 
-#   group_by(NAME) %>% 
-#   summarize(., avg_pop = mean(value)) %>%
-#   separate(NAME,c("county","state"),sep=",")
 census_api_key("ccd5de8eb03adae16092bc5e1c6c40cb104f1e97", install = TRUE, overwrite = TRUE)
 readRenviron("~/.Renviron")
 options(tigris_use_cache = TRUE)
